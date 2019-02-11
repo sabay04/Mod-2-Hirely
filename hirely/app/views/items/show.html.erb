@@ -1,7 +1,16 @@
+
+<!-- If item.user_id = self.id  then no hire button else show hire button-->
+
+
+<!-- Image goes here -->
+
+
 <h1><%= @item.name %></h1>
-
-
 <h3>This item belongs to <%=link_to @item.user.name, user_path(@item.user.id) %></h3>
+<h4>Location:<%= @item.user.location %></h4>
+<h4>Price:<%= @item.price %></h4>
+<h4>Category:<%= @item.catagory %></h4>
+<h4>Description:<%= @item.description %></h4>
 
 <%= link_to 'edit me', edit_item_path(@item) %>
 

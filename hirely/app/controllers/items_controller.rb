@@ -3,7 +3,8 @@ class ItemsController < ApplicationController
   before_action :find_users, only: [:new, :edit, :create, :update]
 
   def index
-    @items = Item.all
+    @items = Item.search(params[:search])
+    # search items
   end
 
   def show
@@ -11,9 +12,11 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+
   end
 
   def create
+
     @item = Item.create(item_params)
     redirect_to @item
   end
@@ -23,6 +26,7 @@ class ItemsController < ApplicationController
   end
 
   def update
+
     @item.update(item_params)
     redirect_to @item
   end
@@ -35,7 +39,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :user_id, :description, :catagory)
+    params.require(:item).permit(:name, :price, :user_id, :description, :catagory, :search)
   end
 
   def find_item
