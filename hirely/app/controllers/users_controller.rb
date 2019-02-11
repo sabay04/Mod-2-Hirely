@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :find_user, only: [:edit, :show, :update, :destroy]
-  before_action :find_items, only: [:new, :edit, :create, :update]
+  before_action :find_items, only: [:new, :show, :edit, :create, :update]
 
     def index
       @users = User.all
@@ -31,6 +31,7 @@ class UsersController < ApplicationController
       @user.destroy
       redirect_to users_path
     end
+
 
     private
 

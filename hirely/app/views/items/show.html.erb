@@ -1,5 +1,8 @@
 <h1><%= @item.name %></h1>
 
+
+<h3>This item belongs to <%=link_to @item.user.name, user_path(@item.user.id) %></h3>
+
 <%= link_to 'edit me', edit_item_path(@item) %>
 
 
